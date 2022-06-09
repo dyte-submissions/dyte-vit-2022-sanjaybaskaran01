@@ -93,7 +93,7 @@
                                                                          
 ```
 <div align="center">
-  <img src="https://i.imgur.com/2vXRNPj.png">
+  <img src="https://i.imgur.com/DrpJYzY.png">
 </div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -146,7 +146,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 4. Run the CLI
    ```sh
-   yarn start --help
+   ellie-cli --help
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -156,13 +156,13 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-`-i input.csv packageName@version`
+`ellie-cli -i input.csv packageName@version`
 
-<img src="https://i.imgur.com/qiZKbaG.png">
+<img src="https://i.imgur.com/kt3saCh.png">
 
 <br>
 
-`-i input.csv packageName@version -t <token> -u`
+`ellie-cli -i input.csv packageName@version -t <token> -u`
 
 <img src="https://i.imgur.com/hH0JwYk.png">
 
@@ -190,7 +190,7 @@ _For more examples, please refer to the [Documentation](#documentation)_
 ## Drawbacks
 
 1. Creating a PR also temporarily creates a folder ( gets deleted after job ) which generates `only` package-lock ( Takes time but better than completing cloning or installing all the node_modules) PS: Look at [src/lib/lockFileGenerator.ts](src/lib/lockFileGenerator.ts)
-2. The changes are committed to a `static` branch name where error might arise if branch already exists PS: Look at [src/lib/generatePR.ts](./src/lib/generatePR.ts#16)  
+2. The changes are committed to a `static` branch name where error might arise if branch already exists PS: Look at [src/lib/generatePR.ts](./src/lib/generatePR.ts#16)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

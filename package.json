@@ -1,12 +1,15 @@
 {
-  "name": "dyte-vit-2022-sanjaybaskaran01",
+  "name": "ellie-cli",
   "version": "1.0.1",
   "description": "CLI tool to update dependencies hassle-free",
-  "main": "index.ts",
+  "main": "./dist/index.js",
+  "bin": {
+    "ellie-cli":"./dist/index.js"
+  },
   "scripts": {
     "start": "NODE_ENV=production node dist/index.js",
     "dev": "NODE_ENV=development nodemon src/index.ts",
-    "build": "tsc -p .",
+    "build": "tsc -p . && npm install -g .",
     "lint": "eslint --max-warnings 0 --ext .ts .",
     "lint:fix": "eslint --max-warnings 0 --ext .ts --fix .",
     "prepare": "husky install"

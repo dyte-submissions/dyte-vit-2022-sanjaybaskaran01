@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 /* eslint-disable no-console */
 
 import { Command, createCommand } from 'commander';
@@ -17,7 +18,7 @@ program
     .requiredOption('-i, --input <csv>', 'path of csv file that contains all repos')
     .option('-u, --update', 'update the dependency')
     .option('-t, --token <token>', 'enter personal access token')
-    .argument('<version>')
+    .argument('<packageName@version>')
     .action(verionVerifier)
     .showHelpAfterError()
     .showSuggestionAfterError(true);
@@ -26,5 +27,5 @@ try {
     program.parse();
 } catch (e: unknown) {
     const error = <Error>e;
-    console.error(error);
+    console.error(chalk.red(error.message));
 }
