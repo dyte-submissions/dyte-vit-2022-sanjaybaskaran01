@@ -11,8 +11,9 @@ const generatePRObject = (
 ): Options => ({
     owner,
     repo: repoName,
-    body: `Updates the version of axios from ${oldVersion} to ${newVersion}`,
+    body: `Updates the version of \`${packageName}\` from \`${oldVersion}\` to \`${newVersion}\``,
     title: `chore: updates ${packageName} to ${newVersion}`,
+    // TODO: Need to figure out how to dynamically update head
     head: 'chore/updates-version-2',
     createWhenEmpty: false,
     changes: [
@@ -30,5 +31,6 @@ const generatePRObject = (
             commit: `chore: updates ${packageName} to ${newVersion}`,
         },
     ],
+    forceFork: true,
 });
 export default generatePRObject;

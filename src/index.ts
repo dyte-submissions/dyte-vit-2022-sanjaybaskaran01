@@ -8,14 +8,15 @@ import verionVerifier from './commands/versionVerifier';
 
 const program: Command = createCommand();
 
-console.log(chalk.green(figlet.textSync('package-cli', { horizontalLayout: 'full' })));
+console.log(chalk.green(figlet.textSync('Ellie-CLI', { horizontalLayout: 'full' })));
 
 program
-    .version('1.0.0')
+    .name('ellie-cli')
+    .version('1.0.1')
     .description('CLI tool to update dependencies hassle-free')
-    .requiredOption('-i, --input <csv>', 'Path of csv file that contains all repos')
-    .option('-u, --update', 'To update the dependency')
-    .option('-t, --token <token>', 'To enter personal access token')
+    .requiredOption('-i, --input <csv>', 'path of csv file that contains all repos')
+    .option('-u, --update', 'update the dependency')
+    .option('-t, --token <token>', 'enter personal access token')
     .argument('<version>')
     .action(verionVerifier)
     .showHelpAfterError()

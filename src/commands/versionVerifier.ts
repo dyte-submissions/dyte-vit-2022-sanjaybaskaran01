@@ -2,7 +2,7 @@
 import { createPullRequest } from 'octokit-plugin-create-pull-request';
 import { OctokitResponse, RequestError } from '@octokit/types';
 import semver, { SemVer } from 'semver';
-import { Octokit } from 'octokit';
+import { Octokit } from '@octokit/rest';
 import lockFileGenerator from '../lib/lockFileGenerator';
 import getRepoDetails from '../lib/getRepoDetails';
 import generatePRobj from '../lib/generatePR';
@@ -82,6 +82,7 @@ const versionVerifier = async (
             }
         }),
     );
+
     console.table(verifierResult);
 };
 
