@@ -9,14 +9,13 @@ const generatePRObject = (
     packageJson: string,
     lockData: string,
     packageManager: 'npm' | 'yarn',
-    branchName = 'updates-version-3',
 ): Options => ({
     owner,
     repo: repoName,
     body: `Updates the version of \`${packageName}\` from \`${oldVersion}\` to \`${newVersion}\``,
     title: `chore: updates ${packageName} to ${newVersion}`,
     // Forked branch name
-    head: `chore/${branchName}`,
+    head: `chore/updates-version-${Date.now().toString(36)}`,
     createWhenEmpty: false,
     changes: [
         {

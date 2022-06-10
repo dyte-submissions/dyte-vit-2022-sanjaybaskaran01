@@ -13,7 +13,7 @@ console.log(chalk.green(figlet.textSync('Ellie-CLI', { horizontalLayout: 'full' 
 
 program
     .name('ellie-cli')
-    .version('1.1.0')
+    .version('1.1.1')
     .description('CLI tool to update dependencies hassle-free')
     .requiredOption('-i, --input <csv>', 'path of csv file that contains all repos')
     .option('-u, --update', 'update the dependency')

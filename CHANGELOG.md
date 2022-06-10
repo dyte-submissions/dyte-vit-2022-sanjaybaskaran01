@@ -1,5 +1,7 @@
 # Changelog
 
+## v1.1.1
+- FIX DRAWBACK Generates unique branch name for fork
 ## v1.1.0
 - Added package manager option
 - Process.exit(1) when error is thrown
