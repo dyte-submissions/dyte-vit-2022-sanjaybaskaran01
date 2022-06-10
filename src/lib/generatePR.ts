@@ -14,7 +14,7 @@ const generatePRObject = (
     body: `Updates the version of \`${packageName}\` from \`${oldVersion}\` to \`${newVersion}\``,
     title: `chore: updates ${packageName} to ${newVersion}`,
     // TODO: Need to figure out how to dynamically update head
-    head: 'chore/updates-version-2',
+    head: 'chore/updates-version-6',
     createWhenEmpty: false,
     changes: [
         {

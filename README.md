@@ -189,7 +189,16 @@ _For more examples, please refer to the [Documentation](#documentation)_
 <!-- ROADMAP -->
 ## Drawbacks
 
-1. Creating a PR also temporarily creates a folder ( gets deleted after job ) which generates `only` package-lock ( Takes time but better than completing cloning or installing all the node_modules) PS: Look at [src/lib/lockFileGenerator.ts](src/lib/lockFileGenerator.ts)
+1. Creating a PR also temporarily creates a folder ( gets deleted after job ) which generates `only` package-lock ( Takes time but better than completing cloning or installing all the node_modules) PS: Look at [src/lib/lockFileGenerator.ts](src/lib/lockFileGenerator.ts) // FIXED
+
+  BEFORE
+
+   <img src= "https://i.imgur.com/QB9XRM8.png">
+   
+   AFTER
+
+   <img src= "https://i.imgur.com/xnIXV4i.png">
+
 2. The changes are committed to a `static` branch name where error might arise if branch already exists PS: Look at [src/lib/generatePR.ts](./src/lib/generatePR.ts#16)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

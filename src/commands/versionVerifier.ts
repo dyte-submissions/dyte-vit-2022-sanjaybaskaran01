@@ -43,7 +43,15 @@ const versionVerifier = async (
                         };
                     if (!token) throw new Error('Personal access token is required to perform PR');
                     packageJson.dependencies[packageName] = `v${version}`;
-                    const packageLock: string = lockFileGenerator(packageJson);
+                    const packageLockRes: OctokitResponse<string> | string = await octokit.request(
+                        `GET /repos/${owner}/${repoName}/contents/package-lock.json`,
+                        {
+                            headers: {
+                                accept: 'application/vnd.github.v3.raw',
+                            },
+                        },
+                    );
+                    const packageLock: string = lockFileGenerator(packageJson, packageLockRes.data);
                     const pr = await octokit.createPullRequest(
                         generatePRobj(
                             owner,
