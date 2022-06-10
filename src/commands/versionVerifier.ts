@@ -20,7 +20,7 @@ const versionVerifier = async (
         const MyOctokit = Octokit.plugin(createPullRequest);
         const octokit = token ? new MyOctokit({ auth: token }) : new MyOctokit();
         const verifierResult = await Promise.all(
-            parsedData.map(async ([name, repoURL]) => {
+            parsedData.map(async ([name, repoURL, packageManager = 'npm']) => {
                 const { owner, repoName } = getRepoDetails(repoURL);
                 try {
                     const res: OctokitResponse<string> | string = await octokit.request(
@@ -43,15 +43,17 @@ const versionVerifier = async (
                         };
                     if (!token) throw new Error('Personal access token is required to perform PR');
                     packageJson.dependencies[packageName] = `v${version}`;
-                    const packageLockRes: OctokitResponse<string> | string = await octokit.request(
-                        `GET /repos/${owner}/${repoName}/contents/package-lock.json`,
+                    const lockRes: OctokitResponse<string> | string = await octokit.request(
+                        `GET /repos/${owner}/${repoName}/contents/${
+                            packageManager === 'npm' ? 'package-lock.json' : 'yarn.lock'
+                        }`,
                         {
                             headers: {
                                 accept: 'application/vnd.github.v3.raw',
                             },
                         },
                     );
-                    const packageLock: string = lockFileGenerator(packageJson, packageLockRes.data);
+                    const packageLock: string = lockFileGenerator(packageJson, lockRes.data, packageManager);
                     const pr = await octokit.createPullRequest(
                         generatePRobj(
                             owner,
@@ -61,6 +63,7 @@ const versionVerifier = async (
                             version,
                             JSON.stringify(packageJson, null, 2),
                             packageLock,
+                            packageManager,
                         ),
                     );
                     return {
@@ -97,6 +100,7 @@ const versionVerifier = async (
     } catch (err: unknown) {
         const error = <Error>err;
         console.error(chalk.red(error.message));
+        process.exit(1);
     }
 };
 

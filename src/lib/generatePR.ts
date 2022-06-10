@@ -7,14 +7,16 @@ const generatePRObject = (
     oldVersion: string,
     newVersion: string,
     packageJson: string,
-    packageLock: string,
+    lockData: string,
+    packageManager: 'npm' | 'yarn',
+    branchName = 'updates-version-3',
 ): Options => ({
     owner,
     repo: repoName,
     body: `Updates the version of \`${packageName}\` from \`${oldVersion}\` to \`${newVersion}\``,
     title: `chore: updates ${packageName} to ${newVersion}`,
-    // TODO: Need to figure out how to dynamically update head
-    head: 'chore/updates-version-6',
+    // Forked branch name
+    head: `chore/${branchName}`,
     createWhenEmpty: false,
     changes: [
         {
@@ -23,8 +25,8 @@ const generatePRObject = (
                     content: packageJson,
                     encoding: 'utf-8',
                 },
-                'package-lock.json': {
-                    content: packageLock,
+                [packageManager === 'npm' ? 'package-lock.json' : 'yarn.lock']: {
+                    content: lockData,
                     encoding: 'utf-8',
                 },
             },

@@ -13,7 +13,7 @@ console.log(chalk.green(figlet.textSync('Ellie-CLI', { horizontalLayout: 'full' 
 
 program
     .name('ellie-cli')
-    .version('1.0.1')
+    .version('1.1.0')
     .description('CLI tool to update dependencies hassle-free')
     .requiredOption('-i, --input <csv>', 'path of csv file that contains all repos')
     .option('-u, --update', 'update the dependency')
@@ -28,4 +28,5 @@ try {
 } catch (e: unknown) {
     const error = <Error>e;
     console.error(chalk.red(error.message));
+    process.exit(1);
 }

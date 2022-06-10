@@ -186,6 +186,21 @@ _For more examples, please refer to the [Documentation](#documentation)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Sample Input 
+
+* Now supports package manager option pass in 'npm' or 'yarn' as an additional data for the repo , default: npm
+
+input.csv
+
+```csv
+dyte-react-sample-app,https://github.com/dyte-in/react-sample-app,npm
+dyte-js-sample-app,https://github.com/dyte-in/javascript-sample-app
+dyte-sample-app-backend,https://github.com/dyte-in/backend-sample-app
+
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- ROADMAP -->
 ## Drawbacks
 

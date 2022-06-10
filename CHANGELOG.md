@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.1.0
+- Added package manager option
+- Process.exit(1) when error is thrown
+
+### Added or Changed
+- option to switch between package managers ('yarn' | 'npm') for each repo
+- by default it considers npm
+
+## v1.0.5
+- Lock file generation
+
+### Added or Changed
+- Lock file now generates much faster.
 ## v1.0.1
 - Fully functional CLI Tool to update dependencies
 
