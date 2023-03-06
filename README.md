@@ -30,23 +30,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="#documentation">
+    <img src="images/logo.jpg" alt="Logo" width="80" height="100">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Ellie-CLI</h3>
 
   <p align="center">
-    project_description
+    CLI tool to update dependencies hassle-free
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="#documentation"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01/issues">Request Feature</a>
   </p>
 </div>
 
@@ -70,11 +70,11 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#drawbacks">Drawbacks</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#contributor">Contributors</a></li>
   </ol>
 </details>
 
@@ -83,9 +83,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+```
+                  _____   _   _   _                   ____   _       ___ 
+                 | ____| | | | | (_)   ___           / ___| | |     |_ _|
+                 |  _|   | | | | | |  / _ \  _____  | |     | |      | | 
+                 | |___  | | | | | | |  __/ |_____| | |___  | |___   | | 
+                 |_____| |_| |_| |_|  \___|          \____| |_____| |___|
+                                                                         
+```
+<div align="center">
+  <img src="https://i.imgur.com/DrpJYzY.png">
+</div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -93,14 +102,10 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Typescript](https://www.typescriptlang.org/)
+* [Node.js](https://nodejs.org/en/)
+* [Commander.js](https://github.com/tj/commander.js)
+* [Octokit](https://octokit.github.io/rest.js/v18/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -109,7 +114,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
+
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -120,20 +125,28 @@ This is an example of how to list things you need to use the software and how to
   npm install npm@latest -g
   ```
 
+* yarn
+  ```sh
+  npm install -g yarn
+  ```
+
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
-   npm install
+   yarn install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Build the app 
+   ```sh
+   yarn build
+   ```
+4. Run the CLI
+   ```sh
+   ellie-cli --help
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -143,45 +156,73 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+`ellie-cli -i input.csv packageName@version`
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+<img src="https://i.imgur.com/kt3saCh.png">
+
+<br>
+
+`ellie-cli -i input.csv packageName@version -t <token> -u`
+
+<img src="https://i.imgur.com/hH0JwYk.png">
+
+_For more examples, please refer to the [Documentation](#documentation)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Documentation
 
+
+| flag  | argument | description | required |
+| ------------- | ------------- | ------------- | ------------- |
+| `-V` `--version` | None | output the version number | `false` |
+| `-i` `--input`  | input.csv | path to csv file  | `true` |
+| `-u` `--update`  | None | update the dependency | `false` |
+| `-t` `--token` | ghp_00000000000000001 | GitHub personal access token | `false` |
+| `-h` `--help` | None | display help for command | `false` |
+|  | \<version\> | package to be checked against | `true` |
+
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Sample Input 
+
+* Now supports package manager option pass in 'npm' or 'yarn' as an additional data for the repo , default: npm
+
+input.csv
+
+```csv
+dyte-react-sample-app,https://github.com/dyte-in/react-sample-app,npm
+dyte-js-sample-app,https://github.com/dyte-in/javascript-sample-app
+dyte-sample-app-backend,https://github.com/dyte-in/backend-sample-app
+
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
-## Roadmap
+## Drawbacks
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+1. Creating a PR also temporarily creates a folder ( gets deleted after job ) which generates `only` package-lock ( Takes time but better than completing cloning or installing all the node_modules) PS: Look at [src/lib/lockFileGenerator.ts](src/lib/lockFileGenerator.ts) // FIXED
+  
+    BEFORE
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+   <img src= "https://i.imgur.com/QB9XRM8.png">
+   
+   AFTER
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+   <img src= "https://i.imgur.com/xnIXV4i.png">
 
+2. The changes are committed to a `static` branch name where error might arise if branch already exists PS: Look at [src/lib/generatePR.ts](./src/lib/generatePR.ts#16) // FIXED
+   
+   BEFORE
+   <img src="https://i.imgur.com/XKXeD59.png">
 
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+   AFTER
+   <img src="https://i.imgur.com/euXsdZr.png">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
@@ -195,20 +236,23 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Your Name - [@sanjayybaskaran](https://twitter.com/sanjayybaskaran) - sanjaybaskaran01@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01](https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- CONTRIBUTOR -->
+## Contributors
 
-* []()
-* []()
-* []()
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/sanjaybaskaran01"><img src="https://avatars.githubusercontent.com/u/72266283?v=4" width="100px;" alt=""/><br /><sub><b>Sanjay Baskaran</b></sub></a><br /><a href="mailto:sanjaybaskaran01@gmail.com?subject=SSdtIHZlcnkgYm9yZWQganVzIHRha2UgbWU=" target="_blank" title="Code">:boom:</a> 
+  </tr>
+</table>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -216,16 +260,16 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/dyte-submissions/dyte-vit-2022-sanjaybaskaran01.svg?style=for-the-badge
+[contributors-url]: https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/dyte-submissions/dyte-vit-2022-sanjaybaskaran01.svg?style=for-the-badge
+[forks-url]: https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01/network/members
+[stars-shield]: https://img.shields.io/github/stars/dyte-submissions/dyte-vit-2022-sanjaybaskaran01.svg?style=for-the-badge
+[stars-url]: https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01/stargazers
+[issues-shield]: https://img.shields.io/github/issues/dyte-submissions/dyte-vit-2022-sanjaybaskaran01.svg?style=for-the-badge
+[issues-url]: https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01/issues
+[license-shield]: https://img.shields.io/github/license/dyte-submissions/dyte-vit-2022-sanjaybaskaran01.svg?style=for-the-badge
+[license-url]: https://github.com/dyte-submissions/dyte-vit-2022-sanjaybaskaran01/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[linkedin-url]: https://linkedin.com/in/sanjaybaskaran
+[product-screenshot]: https://i.imgur.com/zurdKvq.png
